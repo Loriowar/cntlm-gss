@@ -1,8 +1,14 @@
+#CNTLM-GSS
+
 This is [Cntlm](http://cntlm.sourceforge.net/) **with Kerberos patch applied**.
 
 Works on a Ubuntu 12.04 box, at least for me.
 
-Dependency: [Kerberos](http://web.mit.edu/kerberos/).
+## Dependency
+
+* [Kerberos](http://web.mit.edu/kerberos/)
+* [debhelper](http://manpages.ubuntu.com/manpages/wily/man7/debhelper.7.html) - otherwise fail on command `dh_testdir`
+* [libkrb5-dev](http://packages.ubuntu.com/ru/trusty/libkrb5-dev) - otherwise fail on `#include <gssapi/gssapi.h>`
 
 If Kerberos is compiled to a different location, say, $HOME/usr, compile Cntlm with
 
@@ -12,9 +18,9 @@ If Kerberos is compiled to a different location, say, $HOME/usr, compile Cntlm w
 
 `export C_INCLUDE_PATH=$HOME/usr/include`
 
-`make`
+`make` or `make deb` or mode details on [README](README)
 
-To run it, try `cntlm --help` or `cntlm -v` and fix whatever it complains.
+Finally, run it, try `cntlm --help` or `cntlm -v` and fix whatever it complains.
 
 I have only the following lines in my ctnlm.conf file:
 
